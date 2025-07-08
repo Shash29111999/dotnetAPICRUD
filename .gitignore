@@ -1,0 +1,91 @@
+# Build results
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# VS Code settings
+.vscode/
+
+# Rider
+.idea/
+
+# Visual Studio files
+.vs/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Build logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Debug files
+*.pdb
+
+# NCrunch
+.ncrunch*
+*.ncrunchproject
+
+# Web resource caching
+*.publish.xml
+*.dbmdl
+
+# Azure settings
+PublishProfiles/
+*.azurePubxml
+*.pubxml
+
+# DotCover
+*.dotCover
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Entity Framework
+*.db
+migrations/
+
+# Secrets
+secrets.json
+
+# Test results
+TestResults/
+*.coverage
+*.coveragexml
+
+# Node.js (if using frontend framework like Angular/React)
+node_modules/
+npm-debug.log
+yarn.lock
+package-lock.json
+
+# OS-specific
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
