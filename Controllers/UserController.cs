@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TodoAPI.Models;
 using TodoAPICS.Contracts;
 using TodoAPICS.Interfaces;
 
@@ -59,6 +60,19 @@ namespace TodoAPICS.Controllers
 
 
             }
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UserDetailsResponse>> GetTodoItem(Guid id)
+        {
+            var user = await userServices.GetByIdAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return user;
         }
     }
 }

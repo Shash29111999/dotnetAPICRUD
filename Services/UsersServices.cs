@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Azure.Core;
 using Microsoft.EntityFrameworkCore;
 using TodoAPI.AppDataContext;
 using TodoAPI.Models;
@@ -52,9 +53,17 @@ namespace TodoAPICS.Services
             return users;
         }
 
-        Task<User> IUsersService.GetByIdAsync(Guid id)
+        public async Task<UserDetailsResponse> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var user = await _context.UserAPI.FindAsync(id);
+            var userMapped = _mapper.Map<UserDetailsResponse>(user);
+
+            if (userMapped == null)
+            {
+                throw new Exception("No Todo items found for ID: " + id);
+            }
+
+            return userMapped;
         }
 
         Task IUsersService.UpdateUserAsync(Guid id, CreateUserRequest request)

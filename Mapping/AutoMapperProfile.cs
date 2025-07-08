@@ -21,7 +21,9 @@ namespace TodoAPI.MappingProfiles
 
             CreateMap<CreateUserRequest, User>()
                 .ForMember(dest => dest.Id, opt => opt.Ignore());
-              
+
+            CreateMap<User, UserDetailsResponse>();
+
         }
     }
 }

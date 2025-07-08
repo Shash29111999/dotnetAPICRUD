@@ -8,7 +8,7 @@ namespace TodoAPICS.Interfaces
     {
 
         Task<IEnumerable<User>> GetAllAsync();
-        Task<User> GetByIdAsync(Guid id);
+        Task<UserDetailsResponse> GetByIdAsync(Guid id);
         Task CreateUserAsync(CreateUserRequest request);
         Task UpdateUserAsync(Guid id, CreateUserRequest request);
         Task<Todo> DeleteUserAsync(Guid id);
