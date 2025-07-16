@@ -1,76 +1,3 @@
-//using TodoAPI.AppDataContext;
-//using TodoAPI.Middleware;
-//using TodoAPI.Interface;
-//using TodoAPI.Services;
-//using Microsoft.EntityFrameworkCore;
-//using TodoAPICS.Interfaces;
-//using TodoAPICS.Services;
-//using System.Diagnostics;
-
-//var builder = WebApplication.CreateBuilder(args);
-
-//// Add services to the container.
-//builder.Services.AddControllers();
-
-//builder.Services.AddEndpointsApiExplorer();
-//builder.Services.AddSwaggerGen();
-
-//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-//// Register DbContext with SQL Server
-//builder.Services.AddDbContext<TodoDbContext>(options =>
-//    options.UseSqlServer(connectionString));
-
-//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-//builder.Services.AddExceptionHandler<GlobalExceptionHandler>(); 
-//builder.Services.AddProblemDetails();
-
-//// Add Logging 
-//builder.Services.AddLogging(); 
-//builder.Services.AddScoped<ITodoServices, TodoServices>();
-//builder.Services.AddScoped<IUsersService, UsersServices>();
-
-
-
-//var app = builder.Build();
-
-//// Apply database migrations automatically
-//using (var scope = app.Services.CreateScope()) 
-//{
-//    var dbContext = scope.ServiceProvider.GetRequiredService<TodoDbContext>();
-//    dbContext.Database.Migrate(); // Applies any pending migrations
-//}
-
-//// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//}
-
-
-//app.Use(async (context, next) =>
-//{
-//    var stopwatch = Stopwatch.StartNew();
-//    Console.WriteLine($"[Request] --> {context.Request.Method} {context.Request.Path}");
-
-//    // Pass the request to the next middleware in the pipeline
-//    await next(context);
-
-//    // This code executes AFTER the rest of the pipeline has processed the request
-//    stopwatch.Stop();
-//    Console.WriteLine($"[Response] ---> {context.Response.StatusCode} for {context.Request.Path} in {stopwatch.ElapsedMilliseconds}ms");
-//});
-
-////app.UseHttpsRedirection();
-
-//app.UseAuthorization();
-
-//app.MapControllers();
-
-//app.Run();
-
 using TodoAPI.AppDataContext;
 using TodoAPI.Middleware;
 using TodoAPI.Interface;
@@ -108,9 +35,7 @@ builder.Services.AddScoped<IUsersService, UsersServices>();
 // Add CORS services (configure policies later if needed)
 builder.Services.AddCors(options =>
 {
-    Console.WriteLine($"[Inside Cors configuaration]");
-
-   options.AddDefaultPolicy(
+    options.AddDefaultPolicy(
         policy =>
         {
             policy.AllowAnyOrigin() // In production, restrict this to specific origins
@@ -189,4 +114,3 @@ app.MapControllers();
 
 // Middleware 9: Application Run (Starts the web host)
 app.Run();
-

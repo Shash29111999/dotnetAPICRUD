@@ -59,7 +59,7 @@ namespace TodoAPICS.Controllers
                 return StatusCode(500, new { message = "An error occurred while retrieving all Tood it posts", error = ex.Message });
 
 
-            }
+            }   
         }
 
         [HttpGet("{id}")]

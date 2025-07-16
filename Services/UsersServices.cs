@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Azure.Core;
+
 using Microsoft.EntityFrameworkCore;
 using TodoAPI.AppDataContext;
 using TodoAPI.Models;
@@ -12,10 +12,10 @@ namespace TodoAPICS.Services
     public class UsersServices : IUsersService
     {
         private readonly TodoDbContext _context;
-        private readonly ILogger<TodoServices> _logger;
+        private readonly ILogger<UsersServices> _logger;
         private readonly IMapper _mapper;
 
-        public UsersServices(TodoDbContext context, ILogger<TodoServices> logger, IMapper mapper)
+        public UsersServices(TodoDbContext context, ILogger<UsersServices> logger, IMapper mapper)
         {
             _context = context;
             _logger = logger;
@@ -24,6 +24,7 @@ namespace TodoAPICS.Services
 
         public async Task CreateUserAsync(CreateUserRequest request)
         {
+            _logger.LogInformation("Inside Create User");
             try
             {
                 var user = _mapper.Map<User>(request);
@@ -48,7 +49,7 @@ namespace TodoAPICS.Services
             var users = await _context.UserAPI.ToListAsync();
             if (users == null)
             {
-                throw new Exception(" No Todo items found");
+                throw new Exception("No Todo items found");
             }
             return users;
         }
