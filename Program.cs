@@ -78,7 +78,13 @@ using TodoAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using TodoAPICS.Interfaces;
 using TodoAPICS.Services;
-using System.Diagnostics; // Required for Stopwatch
+using System.Diagnostics;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using TodoAPICS.Models;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -94,6 +100,39 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<TodoDbContext>(options =>
     options.UseSqlServer(connectionString));
 
+builder.Services.AddIdentity<UsersDetails, Role>()
+    .AddEntityFrameworkStores<TodoDbContext>() // Use EF Core as the store for Identity
+    .AddDefaultTokenProviders();  // For password reset tokens, etc.
+
+// Configure JWT Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
+
+// Configure Authorization policies (Optional, but good for fine-grained control)
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("AdminPolicy", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("ViewerPolicy", policy => policy.RequireRole("Viewer"));
+    // You can also define policies for combinations of roles or claims
+});
+
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Register the custom exception handler service
@@ -104,6 +143,7 @@ builder.Services.AddProblemDetails(); // Required for UseExceptionHandler
 builder.Services.AddLogging();
 builder.Services.AddScoped<ITodoServices, TodoServices>();
 builder.Services.AddScoped<IUsersService, UsersServices>();
+builder.Services.AddScoped<IProductServices, ProductServices>();
 
 // Add CORS services (configure policies later if needed)
 builder.Services.AddCors(options =>
