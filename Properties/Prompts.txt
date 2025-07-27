@@ -1,0 +1,15 @@
+look this body {
+
+  "email": "India@example.com",
+
+  "username": "dheren",
+
+  "password": "Pass@123"
+
+} for the API http://localhost:5134/api/Auth/register........add validation where email should be vaild .password should one capital one alphanumeric character and number atleast length should be greater than 6........create one  register.component.ts # Registration form and logic
+
+register.component.html
+
+register.component.css.......use reactive form and global toast bar message which show API response message background color should green if 200 or red if any error 500 create service.ts file also.......the UI you are creating should be mobile responsive and laptop...........refer below image.......
+
+

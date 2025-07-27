@@ -1,12 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TodoAPI.AppDataContext;
-using TodoAPI.Services;
 using TodoAPICS.Contracts;
 using TodoAPICS.Interfaces;
 using TodoAPICS.Models;
@@ -14,10 +8,10 @@ using TodoAPICS.Models;
 public class ProductServices : IProductServices
 {
     private readonly TodoDbContext _context;
-    private readonly ILogger<TodoServices> _logger;
+    private readonly ILogger<ProductServices> _logger;
     private readonly IMapper _mapper;
 
-    public ProductServices(TodoDbContext context, ILogger<TodoServices> logger, IMapper mapper)
+    public ProductServices(TodoDbContext context, ILogger<ProductServices> logger, IMapper mapper)
     {
         _context = context;
         _logger = logger;

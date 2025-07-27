@@ -44,17 +44,17 @@ namespace TodoAPI.AppDataContext
            );
 
             // Seed a test Admin User
-            var adminUser = new UsersDetails
-            {
-                Id = "admin-user-id",
-                UserName = "adminuser",
-                NormalizedUserName = "ADMINUSER",
-                Email = "admin@example.com",
-                NormalizedEmail = "ADMIN@EXAMPLE.COM",
-                EmailConfirmed = true,
-                SecurityStamp = "602a5976-95eb-4c60-83d9-abe67c0897d2", // Important for Identity
-                PasswordHash = "AQAAAAIAAYagAAAAEK9sBhuBcmpIJlgZx071ur2tuHPb18tRqP0tTbq/MQyi9X3q7kzzuRRzWBbl5PMV5Q==" // ← Pre-hashed
-            };
+            //var adminUser = new UsersDetails
+            //{
+            //    Id = "admin-user-id",
+            //    UserName = "adminuser",
+            //    NormalizedUserName = "ADMINUSER",
+            //    Email = "admin@example.com",
+            //    NormalizedEmail = "ADMIN@EXAMPLE.COM",
+            //    EmailConfirmed = true,
+            //    SecurityStamp = "602a5976-95eb-4c60-83d9-abe67c0897d2", // Important for Identity
+            //    PasswordHash = "AQAAAAIAAYagAAAAEK9sBhuBcmpIJlgZx071ur2tuHPb18tRqP0tTbq/MQyi9X3q7kzzuRRzWBbl5PMV5Q==" // ← Pre-hashed
+            //};
 
             // Hash the password for the admin user
             //var passwordHasher = new PasswordHasher<UsersDetails>();

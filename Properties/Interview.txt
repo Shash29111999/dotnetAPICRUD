@@ -1,0 +1,148 @@
+1. Core .NET Concepts:
+.NET Framework: What is it? Key components and their roles (e.g., CLR, CTS, JIT). 
+Object-Oriented Programming (OOP): Principles (inheritance, polymorphism, encapsulation, abstraction), differences between classes and objects, value types vs. reference types. 
+Memory Management: Garbage collection, stack vs. heap, boxing and unboxing. 
+Assemblies: What are they, different types (private, shared), and their role in .NET. 
+Delegates and Events: What are they, how to use them, and their role in event-driven programming. 
+LINQ: What is it, different query methods, and how to use it with collections. 
+Threading and Asynchronous Programming: Multithreading, async/await, differences between them. 
+
+2. C# Language:
+C# Basics: Data types, keywords, operators, control flow statements.
+Advanced C# Features: Partial classes, properties, indexers, reflection.
+String Manipulation: String vs. StringBuilder, immutability.
+Error Handling: Exception handling, try-catch-finally blocks. 
+
+3. ASP.NET/ASP.NET Core:
+ASP.NET vs. ASP.NET Core: Key differences, features, and when to choose which. 
+ASP.NET Web Forms: Page life cycle, server controls, viewstate. 
+ASP.NET MVC/Core MVC: Architecture, routing, controllers, actions, views, models, dependency injection. 
+Entity Framework (Core): ORM, data context, migrations, querying data. 
+RESTful APIs: Building and consuming APIs using ASP.NET Core Web API. 
+Middleware: Understanding middleware components and their role in the request pipeline. 
+Dependency Injection (DI): Benefits of DI, different lifetimes (singleton, scoped, transient). 
+Caching: Different caching strategies and their implementation in .NET. 
+Security: Authentication, authorization, role-based security............answer these questions in good explanation way
+
+
+What is .NET Framework? What are its key components?
+
+The .NET Framework is a software development platform developed by Microsoft used to build and run applications on Windows. It provides a large class library (FCL) and a runtime environment (CLR) to execute .NET applications.
+
+Key components:
+
+CLR (Common Language Runtime): Executes code and provides services like memory management, security, and exception handling.
+
+CTS (Common Type System): Defines how data types are declared and used across all .NET languages, ensuring type safety and language interoperability.
+
+CLS (Common Language Specification): A subset of CTS that defines a set of rules that all .NET languages must follow to ensure cross-language integration.
+
+FCL (Framework Class Library): A vast collection of reusable classes, interfaces, and value types.
+
+Explain Object-Oriented Programming (OOP) principles in .NET.
+
+The four pillars of OOP are:
+
+Encapsulation: Hiding internal details of an object and exposing only what’s necessary (e.g., using private fields with public properties).
+
+Abstraction: Simplifying complex systems by modeling classes appropriate to the problem (e.g., abstract classes or interfaces).
+
+Inheritance: Reusing code by allowing a class to inherit from another (e.g., class Car : Vehicle).
+
+Polymorphism: Ability to take many forms. Implemented via method overloading (compile-time) and method overriding (run-time).
+
+Classes vs. Objects:
+
+A class is a blueprint (e.g., Car class), whereas an object is an instance of that class (e.g., new Car()).
+
+Value types vs. Reference types:
+
+Value types (e.g., int, struct) store data directly on the stack.
+
+Reference types (e.g., class, array) store references on the stack, with actual data on the heap.
+
+What is memory management in .NET?
+
+Memory in .NET is managed automatically by the CLR using a technique called garbage collection (GC).
+
+Stack: Used for static memory allocation (value types, method calls).
+
+Heap: Used for dynamic memory allocation (reference types).
+
+Garbage Collector (GC): Frees memory occupied by unreachable objects.
+
+Boxing: Converting a value type to a reference type (e.g., object obj = 5;).
+
+Unboxing: Converting a reference type back to a value type (e.g., int i = (int)obj;).
+
+What are assemblies in .NET? What are their types?
+
+An assembly is a compiled code library used for deployment, versioning, and security in .NET. It is the building block of .NET applications.
+
+Types:
+
+Private Assemblies: Used only by a single application.
+
+Shared Assemblies: Can be used by multiple applications; usually registered in the Global Assembly Cache (GAC).
+
+Satellite Assemblies: Contain localized resources (e.g., language-specific strings).
+
+Each assembly contains metadata, manifest, IL code, and type information.
+
+What are delegates and events in .NET?
+
+Delegates:
+
+Delegates are type-safe function pointers that hold references to methods with a specific signature.
+
+Syntax: delegate void MyDelegate(string message);
+
+Used for callback methods and event handling.
+
+Events:
+
+Events are built on delegates and are used to provide notifications.
+
+Syntax: public event MyDelegate OnProcessCompleted;
+
+Example use case: In a GUI application, clicking a button triggers a click event tied to a delegate method.
+
+What is LINQ?
+
+LINQ (Language Integrated Query) allows querying collections in a consistent manner using SQL-like syntax in C#.
+
+There are two main syntaxes:
+
+Query syntax: var result = from s in students where s.Age > 18 select s;
+
+Method syntax: var result = students.Where(s => s.Age > 18).ToList();
+
+LINQ works on various data sources like arrays, lists, XML, and databases (via LINQ to SQL or Entity Framework).
+
+What is threading and asynchronous programming in .NET?
+
+Threading:
+
+Allows concurrent execution using System.Threading namespace.
+
+Multithreading improves performance by running tasks in parallel but requires synchronization to avoid race conditions.
+
+Async/Await:
+
+Introduced in .NET 4.5 to simplify asynchronous programming.
+
+async keyword marks a method as asynchronous.
+
+await keyword pauses method execution until a task completes.
+
+Difference:
+
+Multithreading uses physical threads; good for CPU-bound operations.
+
+Async/await uses the Task-based Asynchronous Pattern (TAP); better for I/O-bound operations.
+
+Example:
+async Task<string> GetDataAsync() {
+var data = await httpClient.GetStringAsync("url");
+return data;
+}
