@@ -1,0 +1,142 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[margin=0.45in]{geometry}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{titlesec}
+\usepackage{tabularx}
+
+% Compact spacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+\renewcommand{\baselinestretch}{1.0}
+
+% ---- Section formatting with bold + underline rule ----
+\titleformat{\section}
+  {\bfseries\large} % bold + larger
+  {} % no numbering
+  {0pt}
+  {\raggedright} % left aligned
+  [\vspace{1pt}\titlerule] % horizontal line below
+
+\titlespacing*{\section}{0pt}{6pt}{4pt} % spacing around sections
+
+% Bullet point spacing
+\setlist[itemize]{noitemsep, topsep=1pt, left=1.5em}
+\let\hrefWithoutArrow\href
+
+\begin{document}
+ \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    
+
+%----------HEADER----------
+\begin{center}
+    \fontsize{25 pt}{25 pt}\selectfont Shashank Kalyani
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{Pune}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{mailto:shashankkalyani29@gmail.com}{shashankkalyani29@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{tel:+91-8421976557}{8421976557}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://portfolio-app-next-52hxs6e6c-shashank-s-projects.vercel.app/}{shashankkalyani.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/shashank-kalyani/}{linkedin.com/in/shashank-kalyani/}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://github.com/Shash29111999}{github.com/Shash29111999}}%
+\end{center}
+
+
+
+
+%----------EDUCATION----------
+\section{Education}
+\begin{tabular}{p{0.65\linewidth} p{0.2\linewidth} p{0.1\linewidth}}
+    \textbf{Ajeenkya D Y Patil Engineering and Technology, Pune} & \textbf{2018 -- 2022} & \textbf{8.31/10} \\
+    \textbf{Bachelor of Engineering (Computer Science)} & & \\
+\end{tabular}
+
+%----------WORK EXPERIENCE----------
+\section{Work Experience \& Projects}
+\textbf{Jio Platform Limited | Navi Mumbai, India} \hfill \emph{Associate Software Developer} \hfill \textbf{July 2022 -- current}
+\begin{itemize}
+    \item \textbf{Engineered} unified deployment system enabling one-click subdomain releases with sandbox previews.
+    \item \textbf{Implemented} AI-generated code download in ReactJS file structure, running locally without errors.
+    \item \textbf{Architected} Gemini AI integration in Social Savvy SDK for multi-modal analysis of brand campaigns.
+    \item \textbf{Incorporated} Web Speech Synthesis API for voice chatbots, enabling AI podcast generation.
+    \item \textbf{Extended} UI for AI podcast thumbnails ensuring brand consistency and engaging visuals.
+    \item \textbf{Utilized:} ReactJS, Java, AWS Lambda, DynamoDB, AWS CloudWatch, Gitpod, Docker, Kubernetes, Claude AI, OpenAI, Perplexity AI, Gemini AI, Eleven Labs, CI/CD pipelines.
+\end{itemize}
+
+\textbf{Service Order Management} \hfill \emph{Software Engineering Engineer II} \hfill \textbf{Sept 2023 -- Jan 2025}
+\begin{itemize}
+    \item \textbf{Improved} data processing efficiency by 36.36\% using a Spring Boot microservice architecture.
+    \item \textbf{Extended} parser scope to 2 more languages (Typescript, Java, CQL) using Spring Boot, Hibernate.
+    \item \textbf{Enhanced} the user experience by 58\% through front-end optimizations in React \& related packages.
+    \item \textbf{Streamlined} operations for database interactions, achieving 81.29\% accuracy in order place \& tracking.
+\end{itemize}
+
+\textbf{Network Component} \hfill \emph{Software Development Engineer I} \hfill \textbf{Dec 2022 -- Aug 2023}
+\begin{itemize}
+    \item \textbf{Built} adaptors using Java and Spring Boot, ensuring reliable data exchange and network communication.
+    \item \textbf{Optimized} performance by reducing load time from 7s to 2s using RabbitMQ for asynchronous messaging.
+    \item \textbf{Implemented} routing logic with Apache Camel to handle complex data flows and transformations.
+\end{itemize}
+
+\textbf{Inhouse Migration} \hfill \emph{Full Stack Development trainee} \hfill \textbf{July 2022 -- Dec 2022}
+\begin{itemize}
+    \item \textbf{Built} full-stack Learning Management System using ReactJS, Java, Spring Boot, MySQL.
+    \item \textbf{Engineered} actuarial valuation models using Gradient Descent Algorithm.
+    \item \textbf{Rendered} front-end data visualizations using datatables and ChartJS.
+\end{itemize}
+
+%----------PROJECTS----------
+\section{Projects}
+\textbf{Employee Management System | Microservice} \hfill \textbf{Jan 2022 -- Apr 2022}
+\begin{itemize}
+    \item \textbf{Developed} backend with Java, AWS S3, CI/CD pipeline with GitHub Actions and AWS EC2.
+    \item \textbf{Implemented} survey forms, file uploads, categorization, user management, circuit breaker pattern.
+    \item \textbf{Applied} test-driven development with Mockito + JUnit.
+\end{itemize}
+
+\textbf{Supply Chain Management System | Standalone} \hfill \textbf{Aug 2021 -- Nov 2021}
+\begin{itemize}
+    \item \textbf{Designed} smart contract for certification and traceability of fresh food supply chain.
+    \item \textbf{Developed} web-app for certificate validation, shipment tracking, and role management.
+\end{itemize}
+
+%----------ACHIEVEMENTS----------
+\section{Achievements}
+\begin{itemize}
+    \item \textbf{Awarded} with star performer of the year for creative problem solving \& enhancing product usability.
+    \item \textbf{Successfully} migrated vendor application to inhouse enterprise application using React, JAVA, MYSQL.
+    \item \textbf{Solved} 200+ Leetcode and Codechef Problems.
+    \item \textbf{Ranked 9th} in Web Development Workshop (500+ students).
+    \item \textbf{Certification:} Amazon Cloud Practitioner Essentials(AWSome), Development in Agile(LinkedIn)
+\end{itemize}
+
+%----------SKILLS----------
+\section{Skills}
+\textbf{Programming:} C, C++, JAVA, JavaScript, TypeScript \\
+\textbf{Frameworks/Libraries:} ReactJS, Spring Boot, NextJS, Hibernate, Angular, Gen AI, NodeJS, Figma.  \\
+\textbf{Databases/DevOps:} MySQL, Redis, Git, GitHub, AWS, Docker, Kubernetes, RabbitMQ.
+
+\end{document}
